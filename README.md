@@ -27,7 +27,7 @@ Add Stencil.js
 
 Use the GUI of the Extension to generate a new Stancil Library
 
-<img src="./imgs/nx-generate-stancil-lib.png" alt="Geneerate stancil lib" style="max-width:350px;"/>
+<img src="./imgs/nx-generate-stancil-lib.png" alt="Geneerate stancil lib" style="max-width: 350px;"/>
 
 For some reason you might have to install an angular package
 
@@ -41,23 +41,24 @@ Install @stencil/react-output-target as dev dependency:
 
 Update the stencil.config.ts and add the reactOutputTarget.
 
-```export const config: Config = {
-  namespace: 'ui-components',
-  taskQueue: 'async',
+```javascript
+export const config: Config = {
+  namespace: "ui-components",
+  taskQueue: "async",
   plugins: [sass()],
   outputTargets: [
     reactOutputTarget({
-      componentCorePackage: 'ui-components',
-      proxiesFile: '../../generated/ui-components-react/src/components.ts',
+      componentCorePackage: "ui-components",
+      proxiesFile: "../../generated/ui-components-react/src/components.ts",
     }),
     {
-      type: 'dist',
-      esmLoaderPath: '../loader',
-      dir: '../../dist/libs/ui-components/dist',
+      type: "dist",
+      esmLoaderPath: "../loader",
+      dir: "../../dist/libs/ui-components/dist",
     },
     {
-      type: 'www',
-      dir: '../../dist/libs/ui-components/www',
+      type: "www",
+      dir: "../../dist/libs/ui-components/www",
       serviceWorker: null, // disable service workers
     },
   ],
@@ -68,7 +69,7 @@ Update the stencil.config.ts and add the reactOutputTarget.
 
 In tsconfig.base.json add this under `paths`:
 
-```
+```javascript
 "ui-components": ["dist/libs/ui-components"],
 "ui-components/loader": ["dist/libs/ui-components/loader"],
 "ui-components-react": ["dist/generated/ui-components-react/src/components.ts"]
@@ -78,7 +79,7 @@ In tsconfig.base.json add this under `paths`:
 
 in `main.tsx` of your react app (frontend1 in this case) add
 
-```
+```javascript
 import { defineCustomElements } from 'ui-components/loader';
 
 ...
@@ -96,7 +97,7 @@ Run `yarn nx build ui-components` to build it.
 
 Inside the app use the custom components as follow:
 
-```
+```javascript
 import { MyComponent } from 'ui-components-react';
 
 ...
@@ -116,7 +117,7 @@ Run `yarn nx build frontend1` to start a server for your react app.
 
 Make sure your `babel.config.json` includes the presets
 
-```
+```javascript
 {
   "presets": ["@nrwl/web/babel", "@babel/preset-react"],
   "babelrcRoots": ["*"]
