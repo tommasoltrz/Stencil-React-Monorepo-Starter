@@ -1,0 +1,8 @@
+{
+  "version": 2,
+  "projects": {
+    "frontend1": "apps/frontend1",
+    "frontend1-e2e": "apps/frontend1-e2e",
+    "ui-components": "libs/ui-components"
+  }
+}
