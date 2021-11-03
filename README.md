@@ -4,6 +4,8 @@ Use [Stancil.js](https://stenciljs.com/) to create a framework-agnostic componen
 
 Then wrap it into a react library to better consume it and avoid [bumpy interactions between React and Custom Elements](https://custom-elements-everywhere.com/).
 
+Bonus point: add [Storybook](https://storybook.js.org/)
+
 ## Instructions to replicate
 
 ### 1. Create Monorepo with NX
@@ -23,15 +25,19 @@ Install VSC NX [Console Extension](https://marketplace.visualstudio.com/items?it
 
 Add Stencil.js
 
-`yarn add @nxext/stencil -D`
+```bash
+yarn add @nxext/stencil -D
+```
 
 Use the GUI of the Extension to generate a new Stancil Library
 
-<img src="./imgs/nx-generate-stancil-lib.png" alt="Geneerate stancil lib" style="max-width: 350px;"/>
+<img src="./imgs/nx-generate-stancil-lib.png" alt="Generate stancil lib" style="max-width: 350px;"/>
 
-For some reason you might have to install an angular package
+For some unknown reason you might have to install an angular package
 
-`yarn add @angular-devkit/schematics -D`
+```bash
+yarn add @angular-devkit/schematics -D
+```
 
 ### 3. Generate React bindings
 
@@ -123,3 +129,57 @@ Make sure your `babel.config.json` includes the presets
   "babelrcRoots": ["*"]
 }
 ```
+
+and add dependacies
+
+```bash
+yarn add @babel/preset-react -D
+```
+
+## Adding Storybook
+
+### 1. Generate Storybook Configuration with NX
+
+Use the GUI of the NX Extension to generate storybook configuration files
+
+<img src="./imgs/nx-generate-storybook-config.png" alt="Generate Storybook Configuration" style="max-width: 350px;"/>
+
+### 2. Create a story
+
+Inside `my-component` folder create a file named `my-component.stories.js` and add
+
+```javascript
+import { storiesOf } from "@storybook/html";
+import { h } from "@stencil/core";
+import readme from "./readme.md";
+
+storiesOf("My Component", module).add(
+  "Default",
+  () => (
+    <my-component
+      first="a Web Component / Custom Element"
+      middle={["with complex prop passing and easy event binding", "for React"]}
+      last="thanks to Stencil"
+    />
+  ),
+  {
+    notes: {
+      markdown: readme,
+    },
+  }
+);
+```
+
+Make sure to import `h`
+
+### 3. Run Storybook
+
+To start Storybook run
+
+```bash
+yarn nx serve ui-components:storybook
+```
+
+This should be the result
+
+<img src="./imgs/storybook-screenshot.png" alt="Generate Storybook Configuration" style="max-width: 350px;"/>

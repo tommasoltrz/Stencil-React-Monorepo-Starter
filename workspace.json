@@ -3,6 +3,41 @@
   "projects": {
     "frontend1": "apps/frontend1",
     "frontend1-e2e": "apps/frontend1-e2e",
-    "ui-components": "libs/ui-components"
+    "ui-components": "libs/ui-components",
+    "ui-components-e2e": {
+      "root": "apps/ui-components-e2e",
+      "sourceRoot": "apps/ui-components-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/ui-components-e2e/cypress.json",
+            "devServerTarget": "ui-components:storybook"
+          },
+          "configurations": {
+            "ci": {
+              "devServerTarget": "ui-components:storybook:ci"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/ui-components-e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/ui-components-e2e/**/*"
+            ]
+          }
+        }
+      },
+      "tags": [],
+      "implicitDependencies": [
+        "ui-components"
+      ]
+    }
   }
 }
