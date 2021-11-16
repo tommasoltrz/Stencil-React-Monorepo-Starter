@@ -183,3 +183,44 @@ yarn nx serve ui-components:storybook
 This should be the result
 
 <img src="./imgs/storybook-screenshot.png" alt="Generate Storybook Configuration" style="max-width: 350px;"/>
+
+### 4. Add global styling
+
+Create a stylesheet at `libs/ui-components/src/global/global.scss`
+
+Inside `stencil.config.ts` in the config object add
+
+```bash
+globalStyle: "src/global/global.scss",
+```
+
+Inside `src/index.html` add the import
+
+```bash
+<link rel="stylesheet" href="/build/ui-components.css" />
+```
+
+You just added global styling to stencil components.
+The following steps are to add the styling to the storybook as well.
+
+If you are using a webpack version < 5 for your storybook I suggest you upgrade it by running
+
+```bash
+yarn add @storybook/builder-webpack5@next @storybook/manager-webpack5 --dev
+```
+
+Then edit your `.storybook/main.js` config in the root folder:
+
+```javascript
+module.exports = {
+  core: {
+    builder: "webpack5",
+  },
+};
+```
+
+Now you can import the stylesheet in `libs/ui-components/.storybook/preview.js`
+
+```javascript
+import "../src/global/global.scss";
+```

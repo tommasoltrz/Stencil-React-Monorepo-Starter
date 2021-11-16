@@ -1,9 +1,9 @@
-import { Component, Event, EventEmitter, h, Prop } from '@stencil/core';
-import { format } from '../../utils/utils';
+import { Component, Event, EventEmitter, h, Prop } from "@stencil/core";
+import { format } from "../../utils/utils";
 
 @Component({
-  tag: 'my-component',
-  styleUrl: 'my-component.scss',
+  tag: "my-component",
+  styleUrl: "my-component.scss",
   shadow: true,
 })
 export class MyComponent {
@@ -37,6 +37,6 @@ export class MyComponent {
   }
 
   private getText(): string {
-    return format(this.first, this.middle?.join(' '), this.last);
+    return format(this.first, this.middle?.join(" "), this.last);
   }
 }

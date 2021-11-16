@@ -4,6 +4,7 @@ import { sass } from "@stencil/sass";
 
 export const config: Config = {
   namespace: "ui-components",
+  globalStyle: "src/global/global.scss",
   taskQueue: "async",
   plugins: [sass()],
   outputTargets: [
