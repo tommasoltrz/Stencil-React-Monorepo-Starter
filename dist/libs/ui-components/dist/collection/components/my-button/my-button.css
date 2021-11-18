@@ -20,7 +20,7 @@
 }
 
 .btn.primary {
-  background: red;
+  background: var(--color-primary-50);
   color: var(--color-white);
 }
 
