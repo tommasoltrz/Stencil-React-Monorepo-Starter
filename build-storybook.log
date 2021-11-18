@@ -1,0 +1,51 @@
+
+> nx run ui-components:build-storybook --outputDir=/var/folders/s1/8bjmllx55bj_v_5cjh9t4drs451f6k/T/chromatic--15561-98heawuILE7x 
+
+>  NX  ui framework: @storybook/html
+
+
+  You have a webpack.config.js files in your Storybook configuration:
+  - ".storybook/webpack.config.js"
+  - "libs/ui-components/.storybook/webpack.config.js"
+
+  Consider switching to the "webpackFinal" property declared in "main.js" instead.
+  https://nx.dev/latest/angular/storybook/migrate-webpack-final
+    
+
+>  NX  Storybook builder starting ...
+
+info => Cleaning outputDir: /Users/tommaso.laterza/Documents/TOOLKITS/Stencil-React-Monorepo-Starter/dist/storybook/ui-components
+info => Loading presets
+info => Compiling manager..
+info => Compiling preview..
+info => Loading 1 config file in "/Users/tommaso.laterza/Documents/TOOLKITS/Stencil-React-Monorepo-Starter/libs/ui-components/.storybook"
+info => Loading 8 other files in "/Users/tommaso.laterza/Documents/TOOLKITS/Stencil-React-Monorepo-Starter/libs/ui-components/.storybook"
+info => Adding stories defined in "/Users/tommaso.laterza/Documents/TOOLKITS/Stencil-React-Monorepo-Starter/libs/ui-components/.storybook/main.js"
+info => Using implicit CSS loaders
+info => Loading custom Webpack config (full-control mode).
+info => Manager built (17 s)
+info => Preview built (18 s)
+WARN asset size limit: The following asset(s) exceed the recommended size limit (244 KiB).
+WARN This can impact web performance.
+WARN Assets: 
+WARN   165.361d60eb.iframe.bundle.js (1.52 MiB)
+WARN entrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (244 KiB). This can impact web performance.
+WARN Entrypoints:
+WARN   main (1.57 MiB)
+WARN       runtime~main.1ab9ff8a.iframe.bundle.js
+WARN       165.361d60eb.iframe.bundle.js
+WARN       main.0f04cd7c.iframe.bundle.js
+WARN 
+info => Output directory: /Users/tommaso.laterza/Documents/TOOLKITS/Stencil-React-Monorepo-Starter/dist/storybook/ui-components
+
+>  NX  Storybook builder finished ...
+
+
+>  NX  Storybook files available in dist/storybook/ui-components
+
+
+———————————————————————————————————————————————
+
+>  NX   SUCCESS  Running target "build-storybook" succeeded
+
+
