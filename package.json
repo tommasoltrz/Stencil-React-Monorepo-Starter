@@ -7,7 +7,7 @@
     "build": "nx build",
     "test": "nx test",
     "build-storybook": "nx run ui-components:build-storybook",
-    "chromatic": "npx chromatic --project-token=3855f50da65b"
+    "chromatic": "chromatic --exit-zero-on-changes"
   },
   "private": true,
   "dependencies": {
